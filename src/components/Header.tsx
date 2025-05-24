@@ -1,60 +1,79 @@
-
-import { Phone, MapPin, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
-  return (
-    <header className="bg-slate-900 text-white">
-      {/* Top bar with contact info */}
-      <div className="bg-slate-800 py-2">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-between items-center text-sm">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-1">
-                <Phone className="w-4 h-4" />
-                <span>(214) 555-0123</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <MapPin className="w-4 h-4" />
-                <span>Dallas, TX</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-1">
-              <Clock className="w-4 h-4" />
-              <span>Mon-Fri 7AM-6PM | Sat 8AM-4PM</span>
-            </div>
-          </div>
-        </div>
-      </div>
+  const [isOpen, setIsOpen] = useState(false);
+  const navItems = [
+    { href: '#home', label: 'Home' },
+    { href: '#services', label: 'Services' },
+    { href: '#sales-rentals', label: 'Sales & Rentals' },
+    { href: '#about', label: 'About' },
+    { href: '#testimonials', label: 'Reviews' },
+    { href: '#contact', label: 'Contact' },
+  ];
 
-      {/* Main navigation */}
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
+  return (
+    <>
+      <header className="bg-slate-900 text-white fixed w-full top-0 z-50">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          {/* Logo and Title */}
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-              <span className="text-xl font-bold">CE</span>
+              <img
+                src="public/images/logo.png"
+                alt="CarNation Elite Logo"
+                className="w-12 h-12 rounded-full object-cover"
+              />
             </div>
             <div>
               <h1 className="text-2xl font-bold">CarNation Elite</h1>
-              <p className="text-sm text-gray-300">Premium Auto Repair</p>
+              <p className="text-sm text-cyan-600">Premium Auto Repair</p>
             </div>
           </div>
-          
+
+          {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#home" className="hover:text-blue-400 transition-colors">Home</a>
-            <a href="#services" className="hover:text-blue-400 transition-colors">Services</a>
-            <a href="#sales-rentals" className="hover:text-blue-400 transition-colors">Sales & Rentals</a>
-            <a href="#about" className="hover:text-blue-400 transition-colors">About</a>
-            <a href="#testimonials" className="hover:text-blue-400 transition-colors">Reviews</a>
-            <a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a>
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="hover:text-blue-400 transition-colors text-lg"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2">
-            Call Now
-          </Button>
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      </div>
-    </header>
+
+        {/* Mobile Nav */}
+        <nav className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-slate-800`}>  
+          <ul className="flex flex-col px-4 py-2 space-y-2 mt-2">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="block hover:text-blue-400 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </header>
+      {/* Spacer to prevent content hiding under fixed header */}
+      <div className="pt-[84px]" />
+    </>
   );
 };
 
