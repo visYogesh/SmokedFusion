@@ -1,6 +1,5 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 const Services = () => {
   const services = [
@@ -37,7 +36,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
@@ -51,7 +50,7 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
+            <Card key={index} className="hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg bg-gray-50">
               <CardHeader>
                 <CardTitle className="text-xl text-slate-900">{service.title}</CardTitle>
               </CardHeader>
@@ -65,18 +64,9 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full mt-4 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-                  Learn More
-                </Button>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4">
-            View All Services
-          </Button>
         </div>
       </div>
     </section>

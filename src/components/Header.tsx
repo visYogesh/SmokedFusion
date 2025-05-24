@@ -43,13 +43,14 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8">
             <a href="#home" className="hover:text-blue-400 transition-colors">Home</a>
             <a href="#services" className="hover:text-blue-400 transition-colors">Services</a>
+            <a href="#sales-rentals" className="hover:text-blue-400 transition-colors">Sales & Rentals</a>
             <a href="#about" className="hover:text-blue-400 transition-colors">About</a>
             <a href="#testimonials" className="hover:text-blue-400 transition-colors">Reviews</a>
             <a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a>
           </nav>
 
           <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2">
-            Book Appointment
+            Call Now
           </Button>
         </div>
       </div>
