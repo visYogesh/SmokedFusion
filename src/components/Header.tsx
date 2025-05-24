@@ -20,7 +20,7 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
               <img
-                src="public/images/logo.png"
+                src="/images/logo.png"
                 alt="CarNation Elite Logo"
                 className="w-12 h-12 rounded-full object-cover"
               />

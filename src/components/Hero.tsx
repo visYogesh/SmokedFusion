@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Check, Star } from "lucide-react";
 
 const cardImages = [
-  "public/images/car1.jpg",
-  "public/images/car1.jpg",
-  "public/images/car1.jpg",
-  "public/images/car1.jpg",
+  "/images/car1.jpg",
+  "/images/car1.jpg",
+  "/images/car1.jpg",
+  "/images/car1.jpg",
 ];
 
 const Hero = () => {
@@ -108,7 +108,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </section>
   );
 };
