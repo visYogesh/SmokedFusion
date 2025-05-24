@@ -8,6 +8,7 @@ const cardImages = [
   "/images/car1.jpg",
 ];
 
+
 const Hero = () => {
   return (
     <section
