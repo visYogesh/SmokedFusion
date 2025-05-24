@@ -4,45 +4,55 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const Services = () => {
   const services = [
     {
-      title: "Luxury Vehicle Service",
-      description: "Specialized care for BMW, Mercedes, Audi, Lexus, and other premium brands",
-      features: ["Factory-trained technicians", "OEM parts", "Advanced diagnostics"]
+      title: "Auto Repair Service",   
+      description: "Comprehensive auto repair services for all makes and models",
+      features: ["Engine diagnostics", "Brake repair", "Transmission service"]
     },
     {
-      title: "Engine Diagnostics & Repair",
-      description: "State-of-the-art diagnostic equipment to quickly identify and resolve issues",
-      features: ["Computer diagnostics", "Engine rebuilds", "Performance tuning"]
+      title: "Oil Change",
+      description: "Quick and efficient oil change services to keep your engine healthy",
+      features: ["Conventional oil", "Synthetic oil", "Filter replacement"]
     },
     {
-      title: "Brake Service",
-      description: "Complete brake system inspection, repair, and replacement services",
-      features: ["Brake pad replacement", "Rotor resurfacing", "Fluid changes"]
+      title: "Brake Pads Replacement",
+      description: "High-quality brake pad replacement for enhanced safety and performance",
+      features: ["OEM parts", "Performance upgrades", "Safety checks"]
     },
     {
-      title: "Transmission Service",
-      description: "Expert transmission repair and maintenance for all vehicle types",
-      features: ["Fluid changes", "Transmission rebuilds", "Clutch repair"]
+      title: "Battery Replacement",
+      description: "Professional battery replacement services to keep your vehicle’s electrical system functioning smoothly.",
+      features: ["Battery testing", "Installation", "Assessment of electrical system"]
     },
     {
-      title: "Preventive Maintenance",
-      description: "Keep your vehicle running smoothly with regular maintenance schedules",
-      features: ["Oil changes", "Tune-ups", "Multi-point inspections"]
+      title: "Transmission Oil Change",
+      description: "Essential transmission oil change services to prolong the life of your transmission",
+      features: ["Fluid replacement", "Filter change", "System flush"]
     },
     {
-      title: "Electrical Systems",
-      description: "Modern vehicle electrical system diagnosis and repair services",
-      features: ["Battery testing", "Alternator repair", "Wiring diagnostics"]
-    }
+      title: "Engine Diagnostics",
+      description: "Advanced engine diagnostics to identify and resolve issues quickly",
+      features: ["Check engine light", "Performance issues", "Fuel efficiency"]
+    },
+    {
+      title: "AC System Freon Recharge",
+      description: "Keep your vehicle cool with our AC system freon recharge service efficiently",
+      features: ["Leak detection", "Freon refill", "System inspection"]
+    },
+    {
+      title: "AC System Repair",
+      description: "Comprehensive AC system repair services to ensure your comfort on the road",
+      features: ["Compressor replacement", "Condenser repair", "System diagnostics"]
+    },
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="relative bg-gradient-to-br from-blue-900 via-slate-800 to-slate-800 text-white py-3">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl font-bold text-purple-700 mb-4">
             Comprehensive Auto Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-cyan-600 max-w-3xl mx-auto">
             From routine maintenance to complex repairs, our certified technicians 
             provide expert service for all makes and models.
           </p>

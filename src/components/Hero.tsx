@@ -3,9 +3,9 @@ import { Check, Star } from "lucide-react";
 
 const cardImages = [
   "/images/car1.jpg",
-  "/images/car1.jpg",
-  "/images/car1.jpg",
-  "/images/car1.jpg",
+  "/images/car3.jpg",
+  "/images/car2.jpg",
+  "/images/car4.jpg",
 ];
 
 
@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-3"
+      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-20"
     >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -34,7 +34,7 @@ const Hero = () => {
               <div className="flex items-center space-x-3">
                 <Check className="w-6 h-6 text-green-400" />
                 <span className="text-lg">
-                  Certified mechanics for all luxury brands 🔧🚗
+                  Certified Mechanics for all luxury brands 🔧🚗
                 </span>
               </div>
               <div className="flex items-center space-x-3">
@@ -44,7 +44,7 @@ const Hero = () => {
               <div className="flex items-center space-x-3">
                 <Check className="w-6 h-6 text-green-400" />
                 <span className="text-lg">
-                  Transparent pricing & Complimentary Refreshments ☕🍪
+                  Transparent Pricing & Complimentary Refreshments ☕🍪
                 </span>
               </div>
             </div>

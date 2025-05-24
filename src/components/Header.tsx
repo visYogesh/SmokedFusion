@@ -29,6 +29,15 @@ const Header = () => {
               <h1 className="text-2xl font-bold">CarNation Elite</h1>
               <p className="text-sm text-cyan-600">Premium Auto Repair</p>
             </div>
+
+            <div >
+              <p className="text-sm text-gray-400">
+                +1 (214) 597-4922
+              </p>
+              <p className="text-sm text-gray-400">
+                13610, FLOYD CIRCLE, DALLAS,TX 75243
+              </p>
+            </div>
           </div>
 
           {/* Desktop Nav */}
