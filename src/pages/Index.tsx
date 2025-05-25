@@ -7,18 +7,20 @@ import About from "@/components/About";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Blogs from "@/components/Blogs";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
       <Hero />
+      <About />
       <Services />
       <SalesRentals />
-      <About />
       <Testimonials />
       <Contact />
       <Footer />
+      <Blogs />
     </div>
   );
 };

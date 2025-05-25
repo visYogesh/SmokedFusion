@@ -32,6 +32,7 @@ const Footer = () => {
               <li><a href="#about" className="text-gray-300 hover:text-blue-400 transition-colors">About Us</a></li>
               <li><a href="#testimonials" className="text-gray-300 hover:text-blue-400 transition-colors">Reviews</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-blue-400 transition-colors">Contact</a></li>
+              <li><a href="#blogs" className="text-gray-300 hover:text-blue-400 transition-colors">Blogs</a></li>
             </ul>
           </div>
 
@@ -72,8 +73,8 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 CarNation Elite. All rights reserved.
+            <p className="text-gray-400 text-lg">
+              © 2025 CarNation Elite. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">

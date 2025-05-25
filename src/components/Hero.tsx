@@ -5,7 +5,7 @@ const cardImages = [
   "/images/car1.jpg",
   "/images/car3.jpg",
   "/images/car2.jpg",
-  "/images/car4.jpg",
+  // "/images/car4.jpg",
 ];
 
 
@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-20"
+      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-24"
     >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

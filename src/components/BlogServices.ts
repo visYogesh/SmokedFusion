@@ -1,12 +1,15 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
+// data/BlogServices.ts
+export interface Service {
+  title: string;
+  description: string;
+  features: string[];
+  // you can add more fields later, e.g. `details?: string[];`
+}
 
-const services = [
+
+const services: Service[] = [
   {
-    title: "Auto Repair Service",
+    title: "Auto Repair Service OPP",
     description: "Comprehensive auto repair services for all makes and models of vehicles.",
     features: ["Engine diagnostics", "Brake repair", "Transmission service"],
   },
@@ -266,109 +269,5 @@ const services = [
   
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
 
-const hoverTransition = { type: "tween", duration: 0.2, ease: "easeOut" };
-
-const Services: React.FC = () => {
-  const initialCount = 8;
-  const loadSize = 4;
-  const [visibleCount, setVisibleCount] = useState(
-    services.length > initialCount ? initialCount : services.length
-  );
-
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => Math.min(prev + loadSize, services.length));
-  };
-
-  // Keep original indices for correct anchor links
-  const visibleServices = services
-    .map((service, originalIndex) => ({ service, originalIndex }))
-    .slice(0, visibleCount);
-
-  return (
-    <section
-      id="services"
-      className="relative bg-gradient-to-br from-blue-900 via-slate-800 to-slate-800 text-white py-16"
-    >
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-purple-700 mb-4">
-            Comprehensive Auto Services
-          </h2>
-          <p className="text-xl text-cyan-600 max-w-3xl mx-auto">
-            From routine maintenance to complex repairs, our certified
-            technicians provide expert service for all makes and models.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {visibleServices.map(({ service, originalIndex }, idx) => (
-            <motion.div
-              key={originalIndex}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              whileHover={{ scale: 1.03, transition: hoverTransition }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                type: "tween",
-                duration: 0.4,
-                delay: (idx % loadSize) * 0.25,
-              }}
-            >
-              <Card className="border-0 shadow-lg bg-gray-200 flex flex-col h-full min-h-[350px]">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-2xl text-slate-900 text-center">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col justify-between flex-grow p-6 space-y-4">
-                  <div>
-                    <p className="text-gray-700 mb-4 text-lg">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, j) => (
-                        <li key={j} className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                          <span className="text-base text-gray-700">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex justify-center">
-                    <Button asChild className="w-32">
-                      <a href={`#blog${originalIndex+1}`} className="inline-block text-center">
-                        More Details
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {visibleCount < services.length && (
-          <div className="flex justify-center mt-8">
-            <button
-              onClick={handleLoadMore}
-              className="p-3 rounded-full bg-purple-700 hover:bg-purple-600 transition-colors"
-            >
-              <ChevronDown className="text-white" size={24} />
-            </button>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-};
-
-export default Services;
-export {services}
+export default services;
