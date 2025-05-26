@@ -354,7 +354,7 @@ const Services: React.FC = () => {
         <div className="mx-auto px-4 sm:px-6 lg:px-20">
           <div className="bg-gray-300 rounded-2xl border-4 border-purple-700 p-6">
             <h3 className="text-2xl font-semibold text-center text-slate-900 mb-6">
-              Services we Provide
+              Services We Provide
             </h3>
             {/* Use grid to align bullets and text */}
             <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-y-2 gap-x-8 text-gray-800">

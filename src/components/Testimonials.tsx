@@ -1,97 +1,152 @@
-
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
-const Testimonials = () => {
-  const testimonials = [
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const headerVariants: Variants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+interface Testimonial {
+  name: string;
+  image: string;
+  rating: number;
+  description: string;
+}
+
+const Testimonials: React.FC = () => {
+  const testimonials: Testimonial[] = [
     {
-      name: "Jennifer Martinez",
-      vehicle: "2020 BMW X5",
+      name: "Sivaiah Katru",
+      image: "/images/r1.png",
       rating: 5,
-      text: "Outstanding service! My BMW needed complex electrical work, and the team at CarNation Elite diagnosed and fixed the issue quickly. The loaner car was a lifesaver, and their communication throughout the process was excellent.",
-      date: "2 weeks ago"
+      description:
+        "Had a general service for my Ford Fusion on Monday; the service was exceptional and I recommend this garage for the people of Dallas.",
     },
     {
-      name: "Robert Johnson",
-      vehicle: "2019 Mercedes C-Class",
+      name: "KS FOODS",
+      image: "/images/r2.png",
       rating: 5,
-      text: "I've been taking my Mercedes here for 3 years now. Mike and his team are honest, professional, and their work is top-notch. They always explain what needs to be done and why. Highly recommend!",
-      date: "1 month ago"
+      description: "Great Service!!",
     },
     {
-      name: "Lisa Thompson",
-      vehicle: "2021 Audi Q7",
+      name: "Mz Shebranda",
+      image: "/images/r3.png",
       rating: 5,
-      text: "Finally found a shop I can trust! They could have easily oversold me on unnecessary services, but instead they prioritized what actually needed attention. The complimentary Wi-Fi made waiting comfortable too.",
-      date: "3 weeks ago"
+      description: "Great people great service",
     },
     {
-      name: "Michael Davis",
-      vehicle: "2018 Lexus ES",
+      name: "Sai Jayanth",
+      image: "/images/r4.png",
       rating: 5,
-      text: "CarNation Elite saved me thousands compared to the dealership quote. Their expertise with luxury vehicles is evident, and they use quality parts. The warranty on their work gives me peace of mind.",
-      date: "1 week ago"
-    }
+      description: "Best Service",
+    },
+    {
+      name: "Prashanth Manthapuri",
+      image: "/images/r5.png",
+      rating: 5,
+      description:
+        "Very reasonable prices. They helped change starter motor for my car.",
+    },
+    {
+      name: "srikanth sanju",
+      image: "/images/r6.png",
+      rating: 5,
+      description: "Quick and reliable service.",
+    },
+    {
+      name: "Stephany Lopez",
+      image: "/images/r7.png",
+      rating: 5,
+      description:
+        "Best service and price. Keep up the good work. We appreciate the quality of work you did in our jeep. I will definitely come back and recommend to all family and friends. Thank you!",
+    },
+    {
+      name: "Taura Shona",
+      image: "/images/r8.png",
+      rating: 5,
+      description: "Top-notch service, very professional staff.",
+    },
   ];
 
   return (
     <section id="testimonials" className="py-20 bg-cyan-600">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+      <motion.div
+        className="container mx-auto px-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
+        <motion.div className="text-center mb-16" variants={headerVariants}>
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
             What Our Customers Say
           </h2>
-          <p className="text-xl text-red-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what Dallas drivers are saying 
-            about their experience with CarNation Elite.
-          </p>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8 bg-gray-300 rounded-lg">
-                <div className="flex items-start justify-between mb-4">
-                  <Quote className="w-8 h-8 text-blue-600" />
-                  <div className="flex space-x-1">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+          <a target="_blank" title="Rate us on Google" href="https://search.google.com/local/writereview?placeid=ChIJh88JoU4fTIYRLJu4PFLlpFc" >
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto hover:text-white transition-colors duration-300">
+              Review us on Google Maps to appear here
+            </p>
+          </a>
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          variants={containerVariants}
+        >
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              variants={cardVariants}
+              whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3 } }}
+              viewport={{ once: true }}
+              className="cursor-pointer"
+            >
+              <Card className="h-full shadow-md hover:shadow-xl transition-shadow duration-300">
+                <CardContent className="flex flex-col justify-start p-6 bg-gray-100 rounded-lg h-full">
+                  {/* Header: image + name */}
+                  <div className="flex items-center mb-3">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-14 h-14 rounded-full object-cover mr-4"
+                    />
+                    <h4 className="font-semibold text-slate-900 text-lg">
+                      {t.name}
+                    </h4>
+                  </div>
+
+                  {/* Stars */}
+                  <div className="flex items-center mb-3">
+                    {[...Array(t.rating)].map((_, idx) => (
+                      <Star
+                        key={idx}
+                        className="w-5 h-5 fill-yellow-400 text-yellow-400 mr-1"
+                      />
                     ))}
                   </div>
-                </div>
-                
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  "{testimonial.text}"
-                </p>
-                
-                <div className="border-t pt-4">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="font-semibold text-slate-900">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-600">{testimonial.vehicle}</p>
-                    </div>
-                    <span className="text-xs text-gray-500">{testimonial.date}</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
 
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center space-x-4 bg-white p-6 rounded-lg shadow-lg">
-            <div className="flex space-x-1">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <div className="text-left">
-              <div className="text-2xl font-bold text-slate-900">4.9/5</div>
-              <div className="text-sm text-gray-600">500+ Reviews</div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  {/* Description */}
+                  <p className="text-gray-700 leading-relaxed flex-grow">
+                    {t.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
