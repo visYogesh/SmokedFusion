@@ -127,7 +127,7 @@ const team = [
 const About = () => (
   <section
     id="about"
-    className="py-24 bg-gradient-to-br from-blue-900 via-slate-800 to-slate-800 text-white"
+    className="py-24 bg-gradient-to-br bg-slate-900 text-white"
   >
     <div className="container mx-auto px-6">
       {/* Header & Stats */}

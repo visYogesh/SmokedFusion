@@ -297,16 +297,17 @@ const contactItems = [
     content: (
       <>
         <a
-          href="https://maps.app.goo.gl/1HGyPV5X8BBshuXCA"
+          href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
           className="text-gray-300 hover:underline"
           title="Open in Google Maps"
+          target="_blank" rel="noopener noreferrer"
         >
           Google Maps
         </a>
         <p className="py-2">
-          1234 Auto Repair Lane
+          13610, FLOYD CIRCLE,
           <br />
-          Dallas, TX 75201
+          DALLAS, TX 75243
         </p>
       </>
     ),
@@ -330,11 +331,11 @@ const contactItems = [
       <>
       {/* change with clients mail */}
         <a
-          href="mailto:tummayogesh1433@gmail.com"
+          href="mailto:acarnationelite@gmail.com"
           className="text-gray-300 hover:underline"
           title="Send an email"
         >
-          tummayogesh1433@gmail.com
+          acarnationelite@gmail.com
         </a>
         <p className="text-sm text-gray-300 mt-2">We'll respond within 24 hours</p>
       </>
@@ -373,7 +374,7 @@ const Contact = () => {
   const sendWhatsApp = () => {
     const { firstName, lastName, phone, email, message } = formData;
     const text = `First Name: ${firstName}\nLast Name: ${lastName}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
-    const url = `https://wa.me/916304544588?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/12145974922?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
 
@@ -389,12 +390,12 @@ const Contact = () => {
     );
 
     // Change the email address to your client's email
-    const mailtoLink = `mailto:sumanthbapatla07@gmail.com?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:acarnationelite@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-900 text-white">
+    <section id="contact" className="py-28 bg-slate-900 text-white">
       <div className="container mx-auto px-6 lg:px-12">
         <h2 className="text-5xl font-extrabold mb-4 text-center">Get In Touch</h2>
 

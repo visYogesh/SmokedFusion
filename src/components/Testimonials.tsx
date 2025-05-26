@@ -81,7 +81,7 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-cyan-600">
+    <section id="testimonials" className="py-28 bg-cyan-600">
       <motion.div
         className="container mx-auto px-4"
         initial="hidden"

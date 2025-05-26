@@ -48,7 +48,7 @@ ServiceDetailCard.displayName = "ServiceDetailCard";
 
 const Blogs: React.FC = () => {
   return (
-    <section style={{ backgroundColor: 'rgb(26, 37, 63)' }} id="blogs" className="py-16">
+    <section style={{ backgroundColor: 'rgb(26, 37, 63)' }} id="blogs" className="py-28">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-purple-700 mb-4">Service Details</h2>

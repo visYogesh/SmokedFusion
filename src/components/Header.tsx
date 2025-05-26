@@ -37,6 +37,16 @@ const Header = () => {
     { href: "#contact", label: "Contact" },
   ];
 
+  const number = "12145974922";
+  const message = encodeURIComponent(
+    "Hey! I came across CarNation Elite and have a few questions about your services and warranties—could someone assist me?"
+  );
+
+  // Detect mobile vs desktop
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const waBase = isMobile ? "whatsapp://send" : "https://web.whatsapp.com/send";
+  const waLink = `${waBase}?phone=${number}&text=${message}`;
+
   return (
     <>
       <header className="fixed top-0 w-full z-50 bg-slate-900 text-white">
@@ -54,7 +64,7 @@ const Header = () => {
               <div>
                 <h1 className="text-2xl font-bold">CarNation Elite</h1>
                 <a
-                  href="https://maps.app.goo.gl/1HGyPV5X8BBshuXCA"
+                  href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-xs hover:underline"
@@ -78,9 +88,10 @@ const Header = () => {
             </nav>
 
             {/* Desktop Contact Info (lg and up) */}
+
             <div className="hidden lg:flex items-center gap-8 p-4 bg-slate-800 border border-slate-700 rounded-lg shadow-sm">
               <a
-                href="https://wa.me/12145974922"
+                href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 hover:text-cyan-400 transition-colors"
@@ -95,7 +106,7 @@ const Header = () => {
                 </span>
               </div>
               <a
-                href="https://maps.app.goo.gl/1HGyPV5X8BBshuXCA"
+                href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 hover:text-cyan-400 transition-colors"
@@ -119,7 +130,10 @@ const Header = () => {
 
         {/* Mobile & Tablet Menu (below lg) */}
         {isMenuOpen && (
-          <div ref={menuRef} className="lg:hidden bg-slate-800 px-4 py-4 space-y-4">
+          <div
+            ref={menuRef}
+            className="lg:hidden bg-slate-800 px-4 py-4 space-y-4"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -134,7 +148,7 @@ const Header = () => {
             {/* Mobile Contact Info */}
             <div className="pt-4 border-t border-slate-700 text-sm space-y-1">
               <a
-                href="https://wa.me/12145974922"
+                href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-cyan-600 font-semibold hover:underline block"
@@ -146,7 +160,7 @@ const Header = () => {
                 MON-SAT | 9:00 – 5:00
               </p>
               <a
-                href="https://maps.app.goo.gl/1HGyPV5X8BBshuXCA"
+                href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-cyan-600 font-semibold hover:underline block"
@@ -165,3 +179,5 @@ const Header = () => {
 };
 
 export default Header;
+
+

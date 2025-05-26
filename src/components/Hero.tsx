@@ -1,12 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check, Star } from "lucide-react";
 
-const cardImages = [
-  "/images/car1.jpg",
-  "/images/car3.jpg",
-  "/images/car2.jpg",
-];
-
+const cardImages = ["/images/car1.jpg", "/images/car3.jpg", "/images/car2.jpg"];
 
 const Hero = () => {
   return (
@@ -14,6 +9,18 @@ const Hero = () => {
       id="home"
       className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-24"
     >
+      {/* Top-Right Button */}
+      <div className="absolute top-6 left-6 md:left-auto md:right-6 z-10 md:py-10">
+        <button
+          onClick={() =>
+            window.open("https://calendly.com/carnationelite", "_blank")
+          }
+          className="bg-purple-500 text-white px-1 py-2 rounded-lg shadow-lg hover:bg-purple-600 transition-colors duration-300 text-sm md:text-base"
+        >
+          Book an Appointment
+        </button>
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">

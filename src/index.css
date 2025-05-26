@@ -110,8 +110,14 @@ html {
   padding: 0;
   background:rgb(26, 37, 63);
   min-height: 100%;
+}
 
-
+/* SalesRentals.css */
+.carousel .control-arrow,
+.carousel .control-arrow:focus,
+.carousel .control-arrow:hover {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 
