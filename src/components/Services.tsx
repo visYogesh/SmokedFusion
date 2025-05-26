@@ -263,7 +263,51 @@ const services = [
     "description": "Reduce vibrations and secure transmission with new mounts.",
     "features": ["Mount inspection", "Rubber or polyurethane options", "Secure installation"]
   },
-  
+  ];
+
+const allServices = [
+  "A/C & Heating Repair",
+  "Alternator Repair & Replacement",
+  "Belt Repair & Replacement",
+  "Brake Repair & Replacement",
+  "Chassis & Suspension Repair",
+  "Check Engine Light Diagnostics",
+  "Compressor Repair & Replacement",
+  "Computer Diagnostics",
+  "Cooling System Repair",
+  "Drivability Diagnostics & Repair",
+  "Engine Performance Check",
+  "Engine Repair & Replacement",
+  "Evaporator Repair & Replacement",
+  "Heating System Repair & Service",
+  "Hose Replacement",
+  "Ignition System Repair",
+  "Light Repair & Bulb Replacements",
+  "Maintenance Inspections",
+  "Muffler Repair & Replacement",
+  "Oil Changes",
+  "Power Accessory Repair",
+  "Power Antenna Repair",
+  "Power Lock Repair",
+  "Power Steering Repair",
+  "Power Window Repair",
+  "Radiator Repair & Replacement",
+  "Safety & Emissions Inspections",
+  "Shocks & Struts Repair",
+  "Suspension",
+  "Tailpipe Repair & Replacement",
+  "Transmission Repair & Replacement",
+  "Trip Inspections",
+  "Tune Ups",
+  "State Inspections",
+  "Water Pump Repair & Replacement",
+  "Windshield Wiper Blades & Repair",
+  "Filter Replacements",
+  "Fluid Services",
+  "Fuel Injection Repair & Service",
+  "Fuel System Repair & Maintenance",
+  "Starting/Charging System",
+  "Exhaust"
 ];
 
 const cardVariants = {
@@ -284,7 +328,6 @@ const Services: React.FC = () => {
     setVisibleCount((prev) => Math.min(prev + loadSize, services.length));
   };
 
-  // Keep original indices for correct anchor links
   const visibleServices = services
     .map((service, originalIndex) => ({ service, originalIndex }))
     .slice(0, visibleCount);
@@ -292,19 +335,41 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="relative bg-gradient-to-br from-blue-900 via-slate-800 to-slate-800 text-white py-16"
+      className="relative bg-gradient-to-br from-blue-900 via-slate-800 to-slate-800 text-white py-28"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-purple-700 mb-4">
             Comprehensive Auto Services
           </h2>
-          <p className="text-xl text-cyan-600 max-w-3xl mx-auto">
+          <p className="text-xl text-yellow-700 max-w-3xl mx-auto">
             From routine maintenance to complex repairs, our certified
             technicians provide expert service for all makes and models.
           </p>
         </div>
+      </div>
 
+      {/* Full-width panel with inset content */}
+      <div className="w-full py-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-20">
+          <div className="bg-gray-300 rounded-2xl border-4 border-purple-700 p-6">
+            <h3 className="text-2xl font-semibold text-center text-slate-900 mb-6">
+              Services we Provide
+            </h3>
+            {/* Use grid to align bullets and text */}
+            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-y-2 gap-x-8 text-gray-800">
+  {allServices.map((item) => (
+    <li key={item} className="flex items-start">
+      <span className="mt-1 flex-shrink-0 w-2 h-2 bg-gray-800 rounded-full"></span>
+      <span className="ml-2 leading-tight">{item}</span>
+    </li>
+  ))}
+</ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 mt-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {visibleServices.map(({ service, originalIndex }, idx) => (
             <motion.div
@@ -334,7 +399,7 @@ const Services: React.FC = () => {
                     <ul className="space-y-2">
                       {service.features.map((feature, j) => (
                         <li key={j} className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                          <div className="w-2 h-2 bg-blue-600 rounded-full" />
                           <span className="text-base text-gray-700">
                             {feature}
                           </span>
@@ -344,7 +409,10 @@ const Services: React.FC = () => {
                   </div>
                   <div className="flex justify-center">
                     <Button asChild className="w-32">
-                      <a href={`#blog${originalIndex+1}`} className="inline-block text-center">
+                      <a
+                        href={`#blog${originalIndex + 1}`}
+                        className="inline-block text-center"
+                      >
                         More Details
                       </a>
                     </Button>
@@ -371,4 +439,4 @@ const Services: React.FC = () => {
 };
 
 export default Services;
-export {services}
+export { services };

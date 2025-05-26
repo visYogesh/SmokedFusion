@@ -9,12 +9,12 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                <span className="text-lg font-bold">CE</span>
+              <div className="w-10 h-10rounded-full flex items-center justify-center">
+                <img className="rounded-full" src="/images/logo.png" alt="" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">CarNation Elite</h3>
-                <p className="text-sm text-gray-300">Premium Auto Repair</p>
+                <p className="text-sm text-cyan-600">Premium Auto Repair</p>
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -54,7 +54,7 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-blue-400" />
-                <span className="text-gray-300">(214) 555-0123</span>
+                <span className="text-gray-300">+1 (214) 597-4922</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-blue-400" />
@@ -63,8 +63,8 @@ const Footer = () => {
               <div className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-blue-400 mt-0.5" />
                 <span className="text-gray-300">
-                  1234 Auto Repair Lane<br />
-                  Dallas, TX 75201
+                  13610, FLOYD CIRCLE, <br />
+                  DALLAS, TX 75243
                 </span>
               </div>
             </div>

@@ -5,7 +5,6 @@ const cardImages = [
   "/images/car1.jpg",
   "/images/car3.jpg",
   "/images/car2.jpg",
-  // "/images/car4.jpg",
 ];
 
 
@@ -101,7 +100,7 @@ const Hero = () => {
                     <img
                       src={src}
                       alt={`Car ${i + 1}`}
-                      className="w-60 h-96 object-cover rounded-xl shadow-2xl border-2 border-pink-800 hover:scale-105 transition-transform duration-300"
+                      className="w-60 h-96 object-cover rounded-xl shadow-2xl border-2 border-purple-800 hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 );

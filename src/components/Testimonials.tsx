@@ -35,13 +35,13 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50">
+    <section id="testimonials" className="py-20 bg-cyan-600">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
             What Our Customers Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-red-600 max-w-3xl mx-auto">
             Don't just take our word for it. Here's what Dallas drivers are saying 
             about their experience with CarNation Elite.
           </p>
@@ -50,7 +50,7 @@ const Testimonials = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardContent className="p-8">
+              <CardContent className="p-8 bg-gray-300 rounded-lg">
                 <div className="flex items-start justify-between mb-4">
                   <Quote className="w-8 h-8 text-blue-600" />
                   <div className="flex space-x-1">

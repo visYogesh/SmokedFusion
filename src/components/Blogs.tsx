@@ -12,7 +12,7 @@ const ServiceDetailCard = memo(({ service, idx }: { service: any; idx: number })
       <CardHeader className="bg-purple-700 text-white rounded-t-2xl p-4">
         <CardTitle className="text-2xl">{service.title}</CardTitle>
       </CardHeader>
-      <CardContent className="p-6 space-y-4">
+      <CardContent className="p-6 space-y-4 rounded-b-2xl bg-gray-300">
         <p className="text-gray-700">{service.description}</p>
 
         <Accordion type="single" collapsible>
@@ -33,10 +33,10 @@ const ServiceDetailCard = memo(({ service, idx }: { service: any; idx: number })
         </Accordion>
 
         <div className="flex justify-end">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" size="sm" asChild className="bg-black text-white hover:bg-gray-800">
             <a href="#services" className="flex items-center space-x-2">
-              <ArrowUp size={16} />
-              <span>Back to Services</span>
+              <ArrowUp size={16} className="text-white"/>
+              <span className="text-white">Back to Services</span>
             </a>
           </Button>
         </div>
@@ -48,11 +48,11 @@ ServiceDetailCard.displayName = "ServiceDetailCard";
 
 const Blogs: React.FC = () => {
   return (
-    <section id="blogs" className="bg-gray-50 py-16">
+    <section style={{ backgroundColor: 'rgb(26, 37, 63)' }} id="blogs" className="py-16">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-purple-700 mb-4">Service Details</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-cyan-600 max-w-2xl mx-auto">
             Dive into full breakdowns of each service, from detailed descriptions to step-by-step features.
           </p>
         </div>

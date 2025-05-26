@@ -17,10 +17,10 @@ const Index = () => {
       <About />
       <Services />
       <SalesRentals />
+      <Blogs />
       <Testimonials />
       <Contact />
       <Footer />
-      <Blogs />
     </div>
   );
 };
