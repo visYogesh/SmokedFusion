@@ -339,10 +339,10 @@ const Services: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-purple-700 mb-4">
+          <h2 className="text-4xl font-bold text-pink-700 mb-6">
             Comprehensive Auto Services
           </h2>
-          <p className="text-xl text-yellow-700 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             From routine maintenance to complex repairs, our certified
             technicians provide expert service for all makes and models.
           </p>
