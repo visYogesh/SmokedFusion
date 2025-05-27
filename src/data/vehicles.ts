@@ -1,60 +1,247 @@
-// src/data/vehicles.ts
-export interface Vehicle {
-  id: number;
-  make: string;
-  model: string;
-  year: number;
-  price: string;
-  mileage?: string;
-  images: string[];
-  features: string[];
-}
+const vehicleData = {
+  "title": "2008 Dodge Ram 3500",
+  "subtitle": "SLT Crew Cab",
+  "price_usd": 7123,
+  "mileage_miles": 380000,
+  "images": [
+    "/images/sales/dr1.jpg",
+    "/images/sales/dr2.jpg",
+    "/images/sales/dr3.jpg",
+    "/images/sales/dr4.jpg",
+    "/images/sales/dr5.jpg",
 
-// --- only for “for sale” if you need the external page link,
-//    otherwise drop `page` or keep it optional
-export interface SaleVehicle extends Vehicle {
-  page?: string;
-}
-
-export const vehiclesForSale: SaleVehicle[] = [
-  {
-    id: 1,
-    make: "Toyota",
-    model: "Camry",
-    year: 2012,
-    price: "$10,111",
-    mileage: "145,000 miles",
-    images: [
-      "/images/sales/ty2.jpg",
-      "/images/sales/ty1.jpg",
-      /* … */
+  ],
+  "dealership": {
+    "name": "CarNation Elite",
+    "address": "13610 Floyd Cir, Dallas, TX 75243",
+    "phone": "(214) 597-4922",
+    "email": "carnationautorepair@gmail.com"
+  },
+  "contact_options": [
+    "Call (214) 597-4922",
+    "Message Us",
+    "Get Approved",
+    "Value My Trade",
+    "Request More Photos",
+    "Request Price",
+    "Request Mileage",
+    "Request VIN",
+    "Ask About Specials",
+    "Free Trade In Quote",
+    "Apply For Financing",
+    "Request Price Drop Alert",
+    "Make an Offer"
+  ],
+  "vehicle_info": {
+    "condition": "Used",
+    "engine": "Cummins 6.7L Diesel Turbo I6 350hp 610ft. lbs.",
+    "transmission": "5-Speed Automatic",
+    "drivetrain": "Rear Wheel Drive",
+    "trim": "SLT",
+    "max_seating": 6,
+    "fuel": "Diesel",
+    "exterior_color": "Brilliant Black Crystal Pearl Coat",
+    "interior_color": "Medium Slate Gray",
+    "vin": "3D7ML48A58G233513",
+    "seating_rows": 2,
+    "vehicle_type": "Truck",
+    "size": "Heavy Duty"
+  },
+  "description": "The 2008 Dodge Ram 3500 SLT is a powerful and reliable pickup truck that is perfect for any job or adventure. This heavy-duty truck comes equipped with a spacious crew cab that can comfortably seat up to six passengers, making it ideal for both work and play.\n\nUnder the hood, you'll find a robust 6.7-liter Cummins Turbo Diesel engine that delivers impressive performance and towing capabilities. With its 350 horsepower and 650 lb-ft of torque, this truck can handle even the toughest tasks with ease.\n\nThe exterior of the 2008 Dodge Ram 3500 SLT is bold and rugged, with its iconic grille and chrome accents. The bed of the truck offers plenty of space for hauling, and features like clearance lights and a power sliding rear window add both style and function.",
+  "features": {
+    "Air Conditioning": [
+      "Front air conditioning",
+      "Single-zone"
     ],
-    features: ["6-Speed", "Gasoline", "2.5L I4", "Shiftable Automatic"],
-    page: "https://…",
+    "Airbags": [
+      "Front airbags - dual"
+    ],
+    "Audio System": [
+      "Antenna type - mast",
+      "In-Dash CD - single disc",
+      "Radio - AM/FM",
+      "Satellite radio - SiriusXM",
+      "Total speakers - 4"
+    ],
+    "Brakes": [
+      "ABS - 4-wheel",
+      "Electronic brakeforce distribution",
+      "Front ventilated disc (13.9\" diameter, 1.3\" width)",
+      "Rear disc (13.9\" diameter, 1.2\" width)"
+    ],
+    "Comfort Features": [
+      "Carpet floor mats",
+      "Rear floor mats"
+    ],
+    "Convenience Features": [
+      "Front console with storage",
+      "Cruise control",
+      "Rear cupholders",
+      "Keyless entry remote",
+      "One-touch driver window",
+      "12V front power outlet",
+      "Power steering",
+      "Front reading lights",
+      "Tilt steering wheel",
+      "Under-seat storage",
+      "Passenger vanity mirror"
+    ],
+    "Drivetrain": [
+      "Axle ratio - 4.10"
+    ],
+    "Exterior Features": [
+      "Chrome front bumper",
+      "Chrome grille",
+      "Pickup bed light",
+      "Chrome rear bumper"
+    ],
+    "Instrumentation": [
+      "Clock",
+      "Compass",
+      "External temperature display",
+      "Tachometer",
+      "Powertrain hour meter",
+      "Trip odometer",
+      "Low fuel warning"
+    ],
+    "Lights": [
+      "Clearance lights",
+      "Front fog lights"
+    ],
+    "Mirrors": [
+      "Power side mirrors",
+      "Heated side mirrors"
+    ],
+    "Safety": [
+      "Child safety door locks",
+      "Child seat anchors"
+    ],
+    "Seatbelts": [
+      "Front center lap belt",
+      "Rear center 3-point belt",
+      "Front force limiters",
+      "Front pretensioners"
+    ],
+    "Seats": [
+      "Adjustable front headrests",
+      "40-20-40 split bench front seat",
+      "One-piece folding rear bench",
+      "Premium cloth upholstery"
+    ],
+    "Security": [
+      "Vehicle immobilizer",
+      "Power door locks"
+    ],
+    "Suspension": [
+      "Front shocks - gas",
+      "Front springs - coil",
+      "Independent front suspension (short & long arm)",
+      "Rear shocks - gas",
+      "Multi-leaf rear suspension",
+      "Solid live axle"
+    ],
+    "Tires and Rims": [
+      "Dual rear wheels",
+      "Full-size spare underbody",
+      "Spare wheel - steel",
+      "LT all-season tires",
+      "Steel wheels (17\" x 6\")"
+    ],
+    "Towing and Hauling": [
+      "Trailer wiring"
+    ],
+    "Windows": [
+      "Variable intermittent front wipers",
+      "Power sliding rear window",
+      "Power windows"
+    ]
   },
-  {
-    id: 2,
-    make: "Chevrolet",
-    model: "c/k 10 Series",
-    year: 1985,
-    price: "$15,500",
-    mileage: "40,000 miles",
-    images: ["/images/sales/ch1.jpg", /* … */],
-    features: ["Automatic", "Power Steering", "Classic", "Restored"],
-    page: "https://…",
-  },
-  // … more sale vehicles …
-];
+  "specifications": {
+    "Engine Details": {
+      "Bore_inches": 4.21,
+      "Stroke_inches": 4.88,
+      "Displacement_liter": 6.7,
+      "Compression": 17.3,
+      "Oil_capacity_qt": 11.3,
+      "Cylinders": 6,
+      "Max_HP": 350,
+      "Max_HP_rpm": 3013,
+      "Max_Torque_ft_lb": 610,
+      "Max_Torque_rpm": 1400,
+      "Redline_rpm": 3500,
+      "Valves": 24,
+      "Aspiration": "Turbocharger",
+      "Block_Type": "Inline",
+      "Cam_Type": "OHV",
+      "Fuel_Induction": "DI",
+      "Fuel_Type": "Diesel"
+    },
+    "Measurements": {
+      "Bed_Length_in": 98.3,
+      "Ground_Clearance_in": 7.6,
+      "Height_in": 75.1,
+      "Length_in": 249.7,
+      "Wheelbase_in": 160.5,
+      "Width_in": 96,
+      "Width_excl_mirrors_in": 96
+    },
+    "Other Dimensions": {
+      "Front_Track_in": 68.6,
+      "Rear_Track_in": 75.8,
+      "Tank_Size_gal": 35,
+      "Spare_Tank_Size_gal": 0
+    },
+    "Performance": {
+      "Approach_Angle_deg": 16.9,
+      "Departure_Angle_deg": 24.6,
+      "Turning_Circle_ft": 52.5,
+      "Max_Payload_lbs": 4800,
+      "Max_Towing_Capacity_lbs": 15750,
+      "Towing_Capacity_lbs": 10650
+    },
+    "Seating Dimensions": {
+      "Headroom_front_in": 41,
+      "Headroom_rear_in": 40,
+      "Hiproom_front_in": 65,
+      "Hiproom_rear_in": 65.3,
+      "Legroom_front_in": 41,
+      "Legroom_rear_in": 36.7,
+      "Shoulder_room_front_in": 67,
+      "Shoulder_room_rear_in": 66.5,
+      "Doors": 4,
+      "Standard_Seating": 6,
+      "Passenger_Volume_3rd_Row_cu_ft": 0
+    },
+    "Transmission": {
+      "Type": "Automatic",
+      "Name": "5-Speed Automatic",
+      "Gears": 5
+    },
+    "Weight": {
+      "Curb_Weight_lbs": 6200,
+      "Gross_Vehicle_Weight_Rating_lbs": 11000,
+      "Gross_Combined_Weight_Rating_lbs": 17000,
+      "Gross_Vehicle_Weight_Range_lbs": "10001-14000",
+      "Tonnage": 1
+    },
+    "Wheels_and_Tires": {
+      "Rear_Tire_Size": "LT235/80R17",
+      "Rear_Wheel_Diameter": "17 x 6",
+      "Tire_Type": "LT235/80R17",
+      "Wheel_Diameter": "17 x 6"
+    },
+    "Awards": [
+      "Intellichoice",
+      "Vehix"
+    ],
+    "Safety_Equipment": [
+      "ABS Four Wheel",
+      "Airbags Front Driver",
+      "Airbags Front Passenger",
+      "Airbags Side Curtain (Optional)",
+      "Daytime Running Lights (Optional)"
+    ]
+  }
+}
 
-export const vehiclesForRent: Vehicle[] = [
-  {
-    id: 101,        // give a unique id space if you like
-    make: "BMW",
-    model: "3 Series",
-    year: 2022,
-    price: "$85/day",
-    images: ["/images/car1.jpg", /* … */],
-    features: ["Luxury", "GPS", "Bluetooth", "Premium Sound"],
-  },
-  // … more rental vehicles …
-];
+export default vehicleData;
