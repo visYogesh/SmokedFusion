@@ -714,7 +714,7 @@ const SalesRentalsPage: React.FC = () => {
           {/* ===== Sales Section ===== */}
           <div className="mb-20">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-cyan-600 mb-4">
+              <h2 className="text-4xl font-bold text-cyan-600 mb-4 select-none">
                 Premium Vehicles for Sale
               </h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto py-4">
@@ -736,8 +736,8 @@ const SalesRentalsPage: React.FC = () => {
                   whileHover={{ scale: 1.03, y: -5 }}
                   className="cursor-pointer"
                 >
-                  <Card className="hover:shadow-xl transition-shadow duration-300 shadow-lg bg-white">
-                    <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                  <Card className="hover:shadow-xl transition-shadow duration-300 shadow-lg bg-white select-none">
+                    <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden select-none ">
                       <Carousel
                         emulateTouch
                         swipeable
@@ -815,8 +815,8 @@ const SalesRentalsPage: React.FC = () => {
                   whileHover={{ scale: 1.03, y: -5 }}
                   className="cursor-pointer"
                 >
-                  <Card className="hover:shadow-xl transition-shadow duration-300 shadow-lg bg-white">
-                    <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
+                  <Card className="hover:shadow-xl transition-shadow duration-300 shadow-lg bg-white select-none">
+                    <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden select-none">
                       <Carousel
                         emulateTouch
                         swipeable
