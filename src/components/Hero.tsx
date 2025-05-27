@@ -127,7 +127,8 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { Button } from "@/components/ui/button";
 import { Check, Star } from "lucide-react";
 
-const cardImages = ["/images/card0.png", "/images/coffee.png", "/images/brands.png"];
+// const cardImages = ["/images/card0.png", "/images/coffee.png", "/images/brands.png"];
+const cardImages = ["/images/car1.jpg", "/images/car2.jpg", "/images/car3.jpg"];
 
 const Hero = () => {
   const [text] = useTypewriter({
