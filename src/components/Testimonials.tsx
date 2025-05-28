@@ -81,7 +81,7 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-28 bg-cyan-600">
+    <section id="testimonials" className="py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
       <motion.div
         className="container mx-auto px-4"
         initial="hidden"
@@ -90,12 +90,12 @@ const Testimonials: React.FC = () => {
         variants={containerVariants}
       >
         <motion.div className="text-center mb-16" variants={headerVariants}>
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl font-bold text-pink-600 mb-4">
             What Our Customers Say
           </h2>
 
           <a target="_blank" title="Rate us on Google" href="https://search.google.com/local/writereview?placeid=ChIJh88JoU4fTIYRLJu4PFLlpFc" >
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto hover:text-white transition-colors duration-300">
+            <p className="py-2 text-xl text-purple-500 max-w-3xl mx-auto hover:text-purple-700 transition-colors duration-300">
               Review us on Google Maps to appear here
             </p>
           </a>
@@ -114,7 +114,7 @@ const Testimonials: React.FC = () => {
               className="cursor-pointer"
             >
               <Card className="h-full shadow-md hover:shadow-xl transition-shadow duration-300">
-                <CardContent className="flex flex-col justify-start p-6 bg-gray-100 rounded-lg h-full">
+                <CardContent className="flex flex-col justify-start p-6 bg-gray-300 rounded-lg h-full">
                   {/* Header: image + name */}
                   <div className="flex items-center mb-3">
                     <img
@@ -138,7 +138,7 @@ const Testimonials: React.FC = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-700 leading-relaxed flex-grow">
+                  <p className="text-current leading-relaxed flex-grow">
                     {t.description}
                   </p>
                 </CardContent>

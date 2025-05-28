@@ -94,10 +94,11 @@ const Header = () => {
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Message on What's App"
                 className="flex items-center space-x-2 hover:text-cyan-400 transition-colors"
               >
                 <FaWhatsapp className="text-green-500" size={20} />
-                <span className="font-medium text-cyan-200">Contact</span>
+                <span title="Message on What's App"  className="font-medium text-cyan-200">Contact</span>
               </a>
               <div className="flex items-center space-x-2">
                 <Clock size={20} className="text-cyan-500" />
@@ -109,10 +110,11 @@ const Header = () => {
                 href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Get Directions"
                 className="flex items-center space-x-2 hover:text-cyan-400 transition-colors"
               >
-                <MapPin size={20} className="text-cyan-500" />
-                <span className="font-medium text-cyan-200">Maps</span>
+                <MapPin  size={20} className="text-cyan-500" />
+                <span title="Get Directions" className="font-medium text-cyan-200">Maps</span>
               </a>
             </div>
 

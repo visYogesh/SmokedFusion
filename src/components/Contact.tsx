@@ -283,7 +283,11 @@ const contactItems = [
     title: "Phone",
     content: (
       <>
-        <a href="tel:+12145974922" className="text-gray-300 hover:underline" title="Call now">
+        <a
+          href="tel:+12145974922"
+          className="text-gray-300 hover:underline"
+          title="Call now"
+        >
           +1 (214) 597-4922
         </a>
         <p className="text-base py-2">Call or Text anytime</p>
@@ -300,7 +304,8 @@ const contactItems = [
           href="https://www.google.com/maps/place/CarNation+Elite-+Dallas+Auto+Repair+Service/@32.93362,-96.7475204,17z/data=!3m1!4b1!4m6!3m5!1s0x864c1f4ea109cf87:0x57a4e5523cb89b2c!8m2!3d32.93362!4d-96.7449455!16s%2Fg%2F11vtbd3kgd?hl=en&entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
           className="text-gray-300 hover:underline"
           title="Open in Google Maps"
-          target="_blank" rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Google Maps
         </a>
@@ -329,7 +334,7 @@ const contactItems = [
     title: "Email",
     content: (
       <>
-      {/* change with clients mail */}
+        {/* change with clients mail */}
         <a
           href="mailto:acarnationelite@gmail.com"
           className="text-gray-300 hover:underline"
@@ -337,7 +342,9 @@ const contactItems = [
         >
           acarnationelite@gmail.com
         </a>
-        <p className="text-sm text-gray-300 mt-2">We'll respond within 24 hours</p>
+        <p className="text-sm text-gray-300 mt-2">
+          We'll respond within 24 hours
+        </p>
       </>
     ),
     color: "bg-red-600",
@@ -371,11 +378,43 @@ const Contact = () => {
     }));
   };
 
+  // updated what's app
+  // const sendWhatsApp = () => {
+  //   const { firstName, lastName, phone, email, message } = formData;
+  //   const text = `First Name: ${firstName}\nLast Name: ${lastName}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
+  //   const url = `https://wa.me/12145974922?text=${encodeURIComponent(text)}`;
+  //   window.open(url, "_blank");
+  // };
   const sendWhatsApp = () => {
+    const TARGET_NUMBER = "12145974922"; // ← fixed “to” number
     const { firstName, lastName, phone, email, message } = formData;
-    const text = `First Name: ${firstName}\nLast Name: ${lastName}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
-    const url = `https://wa.me/12145974922?text=${encodeURIComponent(text)}`;
-    window.open(url, "_blank");
+
+    // Detect mobile vs desktop
+    const isMobile =
+      /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+        navigator.userAgent
+      );
+
+    // Choose native app URI or web URL
+    const waBase = isMobile
+      ? "whatsapp://send"
+      : "https://web.whatsapp.com/send";
+
+    // Build the text payload with all fields
+    const textPayload =
+      `First Name: ${firstName}\n` +
+      `Last Name: ${lastName}\n` +
+      `Phone: ${phone}\n` +
+      `Email: ${email}\n` +
+      `Message: ${message}`;
+
+    // Construct final link
+    const waLink = `${waBase}?phone=${encodeURIComponent(
+      TARGET_NUMBER
+    )}&text=${encodeURIComponent(textPayload)}`;
+
+    // Open WhatsApp
+    window.open(waLink, "_blank");
   };
 
   const sendEmail = () => {
@@ -383,10 +422,10 @@ const Contact = () => {
     const subject = encodeURIComponent("Hello CarNation Elite");
     const body = encodeURIComponent(
       `First Name: ${firstName}\n` +
-      `Last Name: ${lastName}\n` +
-      `Phone: ${phone}\n` +
-      `Email: ${email}\n\n` +
-      `Message:\n${message}`
+        `Last Name: ${lastName}\n` +
+        `Phone: ${phone}\n` +
+        `Email: ${email}\n\n` +
+        `Message:\n${message}`
     );
 
     // Change the email address to your client's email
@@ -395,9 +434,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 bg-slate-900 text-white">
+    <section id="contact" className="py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white">
       <div className="container mx-auto px-6 lg:px-12">
-        <h2 className="text-5xl font-extrabold mb-4 text-center">Get In Touch</h2>
+        <h2 className="text-5xl text-pink-600 font-extrabold mb-4 text-center">
+          Get In Touch
+        </h2>
 
         <motion.div
           className="mt-16 bg-gray-800 p-8 rounded-xl shadow-lg max-w-4xl mx-auto space-y-6"
@@ -406,10 +447,17 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h4 className="text-2xl font-bold text-center mb-4">Send Us a Message</h4>
+          <h4 className=" text-2xl text-purple-500 font-bold text-center mb-4">
+            Send Us a Message
+          </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium mb-1">First Name <span className="text-red-500">*</span></label>
+              <label
+                htmlFor="firstName"
+                className="block text-sm font-medium mb-1 py-2"
+              >
+                First Name 
+              </label>
               <input
                 id="firstName"
                 name="firstName"
@@ -421,7 +469,12 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium mb-1">Last Name <span className="text-red-500">*</span></label>
+              <label
+                htmlFor="lastName"
+                className="block text-sm font-medium mb-1 py-2"
+              >
+                Last Name 
+              </label>
               <input
                 id="lastName"
                 name="lastName"
@@ -435,7 +488,9 @@ const Contact = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1">Phone <span className="text-red-500">*</span></label>
+              <label htmlFor="phone" className="block text-sm font-medium mb-1 py-2">
+                Phone 
+              </label>
               <input
                 id="phone"
                 name="phone"
@@ -447,7 +502,9 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">E-mail <span className="text-red-500">*</span></label>
+              <label htmlFor="email" className="block text-sm font-medium mb-1 py-2">
+                E-mail 
+              </label>
               <input
                 id="email"
                 name="email"
@@ -460,7 +517,9 @@ const Contact = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium mb-1">Message <span className="text-red-500">*</span></label>
+            <label htmlFor="message" className="block text-sm font-medium mb-1 py-2">
+              Message 
+            </label>
             <textarea
               id="message"
               name="message"
@@ -471,7 +530,7 @@ const Contact = () => {
               className="w-full bg-slate-700 text-white p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div>
+          {/* <div>
             <label htmlFor="file" className="block text-sm font-medium mb-1">Attach a File:</label>
             <input
               id="file"
@@ -480,7 +539,7 @@ const Contact = () => {
               onChange={handleChange}
               className="w-full text-sm text-gray-300"
             />
-          </div>
+          </div> */}
           <div className="flex justify-center space-x-4">
             <button
               type="button"
@@ -511,7 +570,9 @@ const Contact = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className={`w-14 h-14 ${color} rounded-full flex items-center justify-center mx-auto mb-3`}>
+                <div
+                  className={`w-14 h-14 ${color} rounded-full flex items-center justify-center mx-auto mb-3`}
+                >
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold mb-1">{title}</h3>
