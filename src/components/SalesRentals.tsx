@@ -222,7 +222,7 @@ const SalesRentalsPage: React.FC = () => {
 
     const TARGET_NUMBER = "12145974922";
     const carTitle = allDetails?.title || "this vehicle";
-    const dynamicMessage = `Hi Sam, I'm interested in "${carTitle}" - I like this.`;
+    const dynamicMessage = `Hello CarNation Elite, I'm interested in "${carTitle}" - I like this.`;
 
     const waBase = isMobile
       ? "whatsapp://send"
@@ -232,6 +232,18 @@ const SalesRentalsPage: React.FC = () => {
     )}`;
 
     window.open(waLink, "_blank");
+  };
+  const sendMail = () => {
+    const email = "acarnationelite@gmail.com";
+    const subject = "Interest in Vehicle";
+    const carTitle = allDetails?.title || "this vehicle";
+    const body = `Hello CarNation Elite, I'm interested in "${carTitle}" - I like this.`;
+
+    const mailLink = `mailto:${email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.open(mailLink, "_blank");
   };
 
   const [allDetails, setAllDetails] = useState<AnyObject | null>(null);
@@ -313,7 +325,10 @@ const SalesRentalsPage: React.FC = () => {
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
 
-      <section id="sales-rentals" className="py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
+      <section
+        id="sales-rentals"
+        className="py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900"
+      >
         <div className="container mx-auto px-4">
           {/* ===== Sales ===== */}
           <div className="mb-20">
@@ -571,8 +586,15 @@ const SalesRentalsPage: React.FC = () => {
 
               .map(([k, v]) => sectionCard(formatKey(k), renderValue(v)))}
 
-            <div className="container text-center">
-              <div className="my-20 sm:my-0 flex justify-center gap-4 mt-4 flex-wrap">
+            <div className="container flex justify-center items-center">
+              <div className="my-4 py-12 sm:py-0 sm:my-0 flex flex-wrap gap-4 justify-center">
+                <button
+                  onClick={sendMail}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  Send Mail
+                </button>
+
                 <button
                   onClick={sendMessage}
                   className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
