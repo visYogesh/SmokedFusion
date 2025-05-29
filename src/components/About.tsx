@@ -53,14 +53,12 @@ const About = () => (
             Why Choose CarNation Elite?
           </h2>
           <p className="text-lg leading-relaxed">
-            We blend honesty, top-tier skill, and speed: Dallas's go-to for
-            automotive excellence. Your vehicle is freedom, an investment, and
-            peace of mind.
+            At our premier car service center, we combine honesty, exceptional skill, and unmatched speed making us the trusted choice for people across Dallas. Your vehicle
+            represents freedom, value, and peace of mind, and we treat it that way.
           </p>
           <p className="text-lg leading-relaxed">
-            Driven by quality, powered by trust, and built on speed. European
-            car specialists providing dealership-level service without the cost.
-            We get you back on the road fast—with zero compromises.
+            Driven by quality, powered by trust, and built for efficiency, our expert technicians deliver dealership-level service without the high cost. 
+            As European car specialists, we get you back on the road quickly—with zero compromises on performance or reliability.
           </p>
 
           <motion.div
