@@ -261,7 +261,7 @@ const SalesRentalsPage: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "AutoDealer",
     name: "My Dealership",
-    url: "https://www.mydealership.com/sales-rentals",
+    url: "https://carnationelite.com",
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Vehicles For Sale & Rent",
