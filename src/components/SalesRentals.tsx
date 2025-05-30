@@ -308,7 +308,7 @@ const SalesRentalsPage: React.FC = () => {
         />
         <link
           rel="canonical"
-          href="https://www.mydealership.com/sales-rentals"
+          href="https://carnationelite.com"
         />
         <meta
           property="og:title"
@@ -320,7 +320,7 @@ const SalesRentalsPage: React.FC = () => {
         />
         <meta
           property="og:image"
-          content="https://www.mydealership.com/og-image.jpg"
+          content="/images/car1.jpg"
         />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
