@@ -1,27 +1,27 @@
 
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import SalesRentals from "@/components/SalesRentals";
-import About from "@/components/About";
-import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import Blogs from "@/components/Blogs";
+import { motion } from "framer-motion";
+import Hero from "../components/Hero";
+import About from "../components/Catering";
+import Menu from "../components/Menu";
+import Legacy from "../components/Legacy";
+import Contact from "../components/Contact";
+import Navigation from "../components/Navigation";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-red-50"
+    >
+      <Navigation />
       <Hero />
       <About />
-      <Services />
-      <SalesRentals />
-      <Blogs />
-      <Testimonials />
+      <Legacy />
+      <Menu />
       <Contact />
-      <Footer />
-    </div>
+    </motion.div>
   );
 };
 

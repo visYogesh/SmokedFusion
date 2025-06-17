@@ -1,149 +1,188 @@
-import { useTypewriter, Cursor } from "react-simple-typewriter";
-import { Button } from "@/components/ui/button";
-import { Check, Star } from "lucide-react";
+// Home page.tsx
+import React, { useCallback, CSSProperties, useEffect } from "react";
+import { motion } from "framer-motion";
+import Navigation from "../components/Navigation";
+import { useNavigate } from "react-router-dom";
+import bg_img from "/images/blap.jpg"
 
-const cardImages = [
-  "/images/card0.png",
-  "/images/brands.png",
-  "/images/dum.png",
-];
-// const cardImages = ["/images/car1.jpg", "/images/car2.jpg", "/images/car3.jpg"];
+interface HomePageProps {}
 
-const Hero = () => {
-  const [text] = useTypewriter({
-    words: [
-      "Trusted Auto Repair",
-      "Precision & Honesty",
-      "Elite Customer Experience",
-      "Your Car's Best Friend",
-      "Automotive Excellence",
-    ],
-    loop: true,
-    typeSpeed: 100,
-    deleteSpeed: 50,
-    delaySpeed: 2000,
-  });
+// Shared gradient/Text styles
+const GRADIENT_STYLE: CSSProperties = {
+  backgroundImage: "linear-gradient(110deg, #FFD54F, #FFF, #F59E0B, #FFF, #FFD54F)",
+  backgroundSize: "200% auto",
+  animation: "shine 8s linear infinite",
+  textShadow: "0 0 40px rgba(245, 158, 11, 0.6)",
+};
 
-  return (
-    <section
-      id="home"
-      className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-24"
+const GRADIENT_STYLE_TABLET: CSSProperties = {
+  backgroundImage: "linear-gradient(110deg, #FFD54F, #FFF, #F59E0B, #FFF, #FFD54F)",
+  backgroundSize: "200% auto",
+  animation: "shine 8s linear infinite",
+  textShadow: "0 0 40px rgba(245, 158, 11, 0.6)",
+};
+
+// Note: You must still have “@keyframes shine { … }” in your global CSS as before.
+
+const MobileHeader = React.memo(({ onOrder, onStory }: { onOrder: () => void; onStory: () => void }) => (
+  <div className="relative w-full h-screen md:hidden overflow-hidden">
+    <Navigation />
+    <video
+      className="absolute inset-0 w-full h-full object-cover object-top"
+      src="/images/sum_bur.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
     >
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-4xl sm:text-4xl md:text-4xl lg:text-5xl leading-tight text-cyan-600">
-                Driven by Dallas,
-                <span className="block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent py-4">
-                  {text}
-                  <Cursor cursorStyle="|" />
-                </span>
-                {/* Top-Right Button */}
-                <div className="absolute top-6 left-6 md:left-auto md:right-6 z-10 md:py-16">
-                  <button
-                    onClick={() =>
-                      window.open(
-                        "https://calendly.com/carnationelite",
-                        "_blank"
-                      )
-                    }
-                    className="bg-purple-500 text-white px-1 py-2 rounded-lg shadow-lg hover:bg-purple-600 transition-colors duration-300 text-sm md:text-base"
-                  >
-                    Book an Appointment
-                  </button>
-                </div>
-              </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                Experience honest, quality automotive service with speed that
-                fits your schedule. Specializing in luxury vehicles with premium
-                amenities.
-              </p>
-            </div>
+      Your browser does not support the video tag.
+    </video>
+    <div className="absolute inset-0 bg-black bg-opacity-50" />
+    <div className="my-48 relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+      <motion.h1
+        className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text"
+        style={GRADIENT_STYLE}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        DALLAS
+        <br />
+        SMOKED FUSION
+      </motion.h1>
 
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Check className="w-6 h-6 text-green-400" />
-                <span className="text-lg">
-                  Certified Mechanics for all luxury brands 🔧🚗
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Check className="w-6 h-6 text-green-400" />
-                <span className="text-lg">Complimentary Wi-Fi 🚀🛜</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Check className="w-6 h-6 text-green-400" />
-                <span className="text-lg">
-                  Transparent Pricing & Complimentary Refreshments ☕🍪
-                </span>
-              </div>
-            </div>
+      <div className="mt-12 flex space-x-6">
+        <motion.button
+          className="relative px-6 py-3 border border-white text-white font-semibold uppercase rounded-lg overflow-hidden group"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+          whileHover={{ scale: 1.1, rotate: -1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onOrder}
+        >
+          <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition duration-300 rounded-lg blur-sm" />
+          <span
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
+                       translate-x-[-100%] group-hover:animate-[shimmer_2s_linear_infinite] rounded-lg"
+          />
+          <span className="relative z-10 text-white group-hover:text-amber-400 tracking-wider">
+            Order
+          </span>
+        </motion.button>
 
-            <div className="bg-[#1e293b] text-white rounded-xl p-6 mt-6 shadow-lg border border-blue-500/10 hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-[1.01] transition-all duration-300 ease-in-out">
-              <p className="text-lg leading-relaxed">
-                “At{" "}
-                <span className="text-cyan-600 font-semibold">
-                  CarNation Elite
-                </span>
-                , Dallas, our aim is to deliver top-quality auto repair with{" "}
-                <span className="font-semibold text-white/90">precision</span>,
-                <span className="font-semibold text-white/90">honesty</span>,
-                and
-                <span className="font-semibold text-white/90">
-                  elite customer care
-                </span>
-                —keeping Dallas driving with confidence.”
-              </p>
-            </div>
+        <motion.button
+          className="relative px-6 py-3 border border-white text-white font-semibold uppercase rounded-lg overflow-hidden group"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+          whileHover={{ scale: 1.1, rotate: 1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onStory}
+        >
+          <span className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 transition duration-300 blur-md rounded-lg" />
+          <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 animate-pulse blur-sm rounded-lg" />
+          <span className="relative z-10 text-white group-hover:text-amber-400 tracking-wider">
+            Story
+          </span>
+        </motion.button>
+      </div>
+    </div>
+  </div>
+));
 
-            <div className="flex items-center space-x-6 pt-4">
-              <div className="flex items-center space-x-2">
-                <div className="flex space-x-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star
-                      key={star}
-                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-                <span className="text-gray-300">5/5 Rating</span>
-              </div>
-              <div className="text-gray-300">
-                <span className="font-semibold text-white">500+ </span>
+const DesktopHeader = React.memo(({ onOrder, onStory }: { onOrder: () => void; onStory: () => void }) => (
+  <div className="hidden md:block relative w-full h-screen overflow-hidden">
+    <Navigation />
 
-                <span className="text-pink-400">Happy Customers</span>
-              </div>
-            </div>
-          </div>
+    {/* Lazy-load the image so it doesn’t block initial paint */}
+    <img
+      className="absolute inset-0 w-full h-full object-cover"
+      src={bg_img}
+      alt="Background"
+      loading="lazy"
+    />
 
-          {/* ────────── RIGHT “CAR CARDS” FAN ────────── */}
-          <div className="relative flex justify-center items-center py-8">
-            <div className="flex items-center justify-center space-x-[-100px]">
-              {cardImages.map((src, i) => {
-                const rotations = ["-8deg", "-4deg", "0deg", "10deg"];
-                return (
-                  <div
-                    key={i}
-                    className="relative hover:z-20 transition-transform duration-300"
-                    style={{
-                      transform: `rotate(${rotations[i]})`,
-                    }}
-                  >
-                    <img
-                      src={src}
-                      alt={`Car ${i + 1}`}
-                      className="w-60 h-96 object-cover rounded-xl shadow-2xl border-2 border-purple-800 hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+    <div className="absolute inset-0 bg-black bg-opacity-30" />
+    <div className="relative z-10 flex items-center justify-start w-full h-full">
+      <div className="w-1/2 pl-16">
+        <motion.h1
+          className="py-20 font-bold uppercase text-7xl leading-tight text-left bg-clip-text text-transparent"
+          style={GRADIENT_STYLE_TABLET}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+        >
+          DALLAS
+          <br />
+          SMOKED FUSION
+        </motion.h1>
+
+        <div className="mt-12 flex space-x-6">
+          <motion.button
+            className="relative px-8 py-4 border text-white font-semibold uppercase rounded-lg overflow-hidden group transition duration-300"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+            whileHover={{ scale: 1.08, rotate: -1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onOrder}
+          >
+            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition duration-300 blur-sm rounded-lg" />
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[slide_1.5s_linear_infinite] rounded-lg" />
+            <span className="relative z-10 group-hover:text-amber-400 tracking-wide">
+              Order
+            </span>
+          </motion.button>
+
+          <motion.button
+            className="relative px-8 py-4 bg-transparent border text-white font-semibold uppercase rounded-lg overflow-hidden group transition duration-300"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1.3 }}
+            whileHover={{ scale: 1.08, rotate: 1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onStory}
+          >
+            <span className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 transition duration-300 blur-md rounded-lg" />
+            <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 animate-pulse blur-sm rounded-lg" />
+            <span className="relative z-10 group-hover:text-amber-300 tracking-wide">
+              Story
+            </span>
+          </motion.button>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+));
+
+const HomePage: React.FC<HomePageProps> = () => {
+
+   useEffect(() => {
+    // Disable scroll
+    document.body.style.overflow = 'hidden';
+
+    // Re-enable scroll on cleanup
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+  const navigate = useNavigate();
+
+  const handleOrderClick = useCallback(() => {
+    navigate("/menu");
+  }, [navigate]);
+
+  const handleStoryClick = useCallback(() => {
+    navigate("/legacy");
+  }, [navigate]);
+
+  return (
+    <>
+      <MobileHeader onOrder={handleOrderClick} onStory={handleStoryClick} />
+      <DesktopHeader onOrder={handleOrderClick} onStory={handleStoryClick} />
+    </>
   );
 };
 
-export default Hero;
+export default React.memo(HomePage);

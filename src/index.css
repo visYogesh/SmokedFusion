@@ -97,47 +97,433 @@
 
   body {
     @apply bg-background text-foreground;
-    margin: 0;
-  padding: 0;
-  background:rgb(26, 37, 63);
-  min-height: 100%;
   }
 }
 
 html {
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-  background:rgb(26, 37, 63);
-  min-height: 100%;
+  background-color: black;
 }
 
-/* SalesRentals.css */
-.carousel .control-arrow,
-.carousel .control-arrow:focus,
-.carousel .control-arrow:hover {
-  background: transparent !important;
-  box-shadow: none !important;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-
-
-/* scroll-bar */
-/* For Chrome, Safari, and Edge */
-/* ::-webkit-scrollbar {
-  width: 8px; 
+/* From Uiverse.io by StealthWorm */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12rem;
+  overflow: hidden;
+  height: 3rem;
+  background-size: 300% 300%;
+  cursor: pointer;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
+  transition: 0.5s;
+  animation: gradient_301 5s ease infinite;
+  border: double 4px transparent;
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(
+      137.48deg,
+      #d8c87e 10%,
+      #373436 45%,
+      #ca7729 67%,
+      #5d5e60 87%
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent 
+#container-stars {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  backdrop-filter: blur(1rem);
+  border-radius: 5rem;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgb(31, 88, 88); 
-  border-radius: 4px; 
+strong {
+  z-index: 2;
+  font-family: "Avalors Personal Use";
+  font-size: 12px;
+  letter-spacing: 5px;
+  color: #ffffff;
+  text-shadow: 0 0 4px white;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(31, 88, 88); 
+#glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(254, 83, 186, 0.636);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(142, 81, 234, 0.704);
+}
+
+.btn:hover #container-stars {
+  z-index: 1;
+  background-color: #212121;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.btn:active {
+  border: double 4px #fe53bb;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  animation: none;
+}
+
+.btn:active .circle {
+  background: #fe53bb;
+}
+
+#stars {
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
+}
+
+#stars::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  animation: animStarRotate 90s linear infinite;
+}
+
+#stars::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  animation: animStar 60s linear infinite;
+}
+
+#stars::before {
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* landing page */
+
+/* in your global CSS */
+
+/* @keyframes typing {
+  from { width: 0; }
+  to   { width: 14ch; } 
+}
+
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid white;
+  display: inline-block;
+  width: 15ch;                  
+  animation: typing 2s steps(12) forwards;
 } */
 
+
+/* Morphing blobs */
+@keyframes blob1 {
+  0%   { transform: translate(0,0) scale(1); }
+  33%  { transform: translate(30px,-20px) scale(1.1); }
+  66%  { transform: translate(-20px,30px) scale(0.9); }
+  100% { transform: translate(0,0) scale(1); }
+}
+@keyframes blob2 {
+  0%   { transform: translate(0,0) scale(1); }
+  33%  { transform: translate(-30px,20px) scale(0.8); }
+  66%  { transform: translate(20px,-30px) scale(1.2); }
+  100% { transform: translate(0,0) scale(1); }
+}
+.blob-1 { animation: blob1 8s ease-in-out infinite; }
+.blob-2 { animation: blob2 10s ease-in-out infinite; }
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 52ch; } /* a little padding for wide chars */
+}
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  border-right: 4px solid white;
+  width: 15ch;
+  animation: typing 2s steps(15) forwards, hide-cursor2 0.1s 2s forwards;
+}
+
+
+.animate-typing-regular { 
+  overflow: hidden; 
+  white-space: nowrap; 
+  display: inline-block; 
+  border-right: 4px solid white; 
+  width: 8ch; /* Adjusted for "Our Menu" (8 characters) */
+  animation: typing2 2s steps(8) forwards, hide-cursor2 0.1s 2s forwards; /* Hide cursor after typing completes */
+} 
+
+@keyframes typing2 {
+  from { width: 0; }
+  to { width: 12ch; }
+}
+
+
+
+.animate-typing-regular1 { 
+  overflow: hidden; 
+  white-space: nowrap; 
+  display: inline-block; 
+  border-right: 4px solid white; 
+  width: 8ch; /* Adjusted for "Our Menu" (8 characters) */
+  animation: typingh1 2s steps(8) forwards, hide-cursor2 0.1s 2s forwards; /* Hide cursor after typing completes */
+} 
+
+@keyframes typingh1 {
+  from { width: 0; }
+  to { width: 10ch; }
+}
+
+
+
+@keyframes hide-cursor2 {
+  to { border-right: none; }
+}
+
+
+/* Smoke puffs */
+.smoke {
+  position: absolute;
+  bottom: 25%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+  filter: blur(30px);
+  opacity: 0;
+  animation: rise 6s ease-out infinite;
+}
+@keyframes rise {
+  0%   { transform: translateY(0) scale(1);   opacity: 0.4; }
+  50%  { opacity: 0.2; }
+  100% { transform: translateY(-250px) scale(1.8); opacity: 0; }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-50px) scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0.1;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-zoomOut {
+  animation: zoomOut 1s ease-in-out forwards;
+}
+
+
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-zoomOut {
+  animation: zoomOut 1s ease forwards;
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-zoomOut {
+  animation: zoomOut 1s ease forwards;
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-zoomOut {
+  animation: zoomOut 1s ease forwards;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) scale(1.1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+
+.dynamic-image-container {
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .dynamic-image-container {
+    transform: scale(0.8);
+  }
+}

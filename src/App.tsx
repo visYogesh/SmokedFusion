@@ -1,31 +1,62 @@
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
+import ScrollToTop from "./components/ScrollToTop";
+
+// pages/components
+import Home from "./components/Hero";
+import Legacy from "./components/Legacy";
+import Contact from "./components/Contact";
 import NotFound from "./pages/NotFound";
-import ConfettiEffect from "./components/ConfettiEffect";
+import LandingPage from "./components/LandingPage";
+// New pages
+import MenuRegular from "./components/MenuRegular";
+import MenuSpecial from "./components/MenuSpecial";
+import Catering from "./components/Catering";
+import FAQ from "./components/FAQ";
+// import InfoPage from "./components/InfoPage";
+
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <ConfettiEffect />
-      {/* ADD ALL CUSTOM COMPONENTS BELOW */}
-      {/* Example: <Hero /> */}
-      {/* ADD ALL CUSTOM COMPONENTS ABOVE */}
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        {/* ADD ALL CUSTOM ROUTES BELOW THE CATCH-ALL "*" ROUTE */}
-        <Routes>
-          <Route path="/shopping-request" element={<Navigate to="/#sales-rentals" replace />} />
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <LandingPage>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            {/* Top‐level pages */}
+            <Route path="/" element={<Home />} />
+            <Route path="/catering" element={<Catering />} />
+            <Route path="/legacy" element={<Legacy />} />
+            <Route path="/contact" element={<Contact />} />
+
+            {/* FAQ page */}
+            <Route path="/catering/faq" element={<FAQ />} />
+
+            {/* Info page that toggles FAQ inline */}
+            {/* <Route path="/info" element={<InfoPage />} /> */}
+
+            {/* Redirect /menu → /menu/regular */}
+            <Route
+              path="/menu"
+              element={<Navigate to="/menu/regular" replace />}
+            />
+
+            {/* Explicit submenu routes */}
+            <Route path="/menu/regular" element={<MenuRegular />} />
+            <Route path="/menu/special" element={<MenuSpecial />} />
+
+            {/* Catch‐all 404 */}
+            <Route path="*" element={<Navigate to="/menu/regular" replace />}  />
+          </Routes>
+        </BrowserRouter>
+      </LandingPage>
     </TooltipProvider>
   </QueryClientProvider>
 );
